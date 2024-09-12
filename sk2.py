@@ -2,34 +2,37 @@ class Skolotajs:
     def __init__(self, skaits, tips):
         self.skaits = skaits
         self.tips = tips
-        self.tips = tips
 class SakumskolasSkolotajs(Skolotajs):
-    def __init__(self, uzvards1, klase):
+    def __init__(self, tips, uzvards1, skaits, klase):
+        self.tips = tips
         self.uzvards1= uzvards1
         self.klase = klase
+        self.skaits = skaits
     def izvade1(self):
-        print(
+        return(
             "Sākumskolas (tips-{}) Skolotajs {} māca {} stundas {} klasē."
             ).format(self.tips, self.uzvards1, self.skaits, self.klase)
 
 class VidusskolasSkolotajs(Skolotajs):
-    def __init__(self, uzvards2, pirmais, otrais, kopsk):
+    def __init__(self, tips, uzvards2, pirmais, otrais, kopsk,):
+        self.tips = tips
         self.uzvards2=uzvards2
         self.pirmais= pirmais
         self.otrais= otrais
         self.kopsk=kopsk
+        
     def izvade2(self):
-        print(
+        return(
             "Vidusskolas (tips-{}) skolotājs {} māca šādus priekšmetus: {} un {}, kopā {} stundas."
          ).format(self.tips, self.uzvards2, self.pirmais, self.otrais, self.kopsk)
 
 
-tips=int(input("Ievadiet skolotāja tipu (Pamatskolas skolotājs: 1   Vidusskolas skolotajs: 3): "))
+tips=int(input("Ievadiet skolotāja tipu (   Pamatskolas skolotājs: 1   Vidusskolas skolotajs: 3   ): "))
 if tips == 1:
     uzvards1=input("Ievadiet sākumskolas skolotāja uzvārdu: ")
     klase=input("Ievadiet klasi: ")
     skaits=input("Ievadiet skolotāja stundu skaitu: ")
-
+    
     object1=SakumskolasSkolotajs(tips,uzvards1,skaits,klase)
     print(object1.izvade1())
     object1.izvade1()
@@ -43,7 +46,7 @@ elif tips == 3:
     
 
     kopsk=skaits1+skaits2
-
+    
     object2=VidusskolasSkolotajs(tips,uzvards2,pirmais,otrais,kopsk)
     print(object2.izvade2())
     object2.izvade2()
